@@ -1,0 +1,36 @@
+<html>
+<h1>Tennis Game</h1>
+
+<canvas id="playground" width="800" height="600">
+
+</canvas>
+
+<script>
+var canvas;
+var canvasContext;
+var ballx=50;
+
+window.onload = function() {
+	console.log("Tennis Game initialised!");
+	canvas = document.getElementById('playground');
+	canvasContext = canvas.getContext('2d');
+
+    setInterval(fetchCourt,1000);     // to give interval b/w the again and again calling of the function
+    fetchCourt();
+    fetchCourt();
+}
+
+function fetchCourt(){
+    ballx=ballx+20;
+    console.log("fetching court for you...");
+    canvasContext.fillStyle = 'black';
+	canvasContext.fillRect(0,0,canvas.width,canvas.height);
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillRect(225,210,200,200);
+	canvasContext.fillStyle = 'red';
+	canvasContext.fillRect(ballx,ballx,ballx,ballx);
+}
+
+</script>
+
+</html>
